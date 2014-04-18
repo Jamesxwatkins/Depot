@@ -1,20 +1,20 @@
 class Cart < ActiveRecord::Base
 	has_many :line_items
 
-	before_destroy :ensure_not_referenced_by_any_line_item
+	#before_destroy :ensure_not_referenced_by_any_line_item
 
-	private
+	#private
 
-	def ensure_not_referenced_by_any_line_item
-		if line_items.empty?
-			return true
-		else
-			errors.add(:base, 'Line Items Present')
+	#def ensure_not_referenced_by_any_line_item
+	#	if line_items.empty?
+	#		return true
+	#	else
+	#		errors.add(:base, 'Line Items Present')
 			
-			return false
+	#		return false
 
-		end
-	end
+	#	end
+	#end
 
 	def add_product(product_id)
 		current_item = line_items.find_by(product_id:product_id)
